@@ -1,19 +1,29 @@
 // Mobile Toggle Menu
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
-const barsIcon = menuToggle.querySelector('.fa-bars');
-const timesIcon = menuToggle.querySelector('.fa-times');
 
 menuToggle.addEventListener('click', () => {
   navMenu.classList.toggle('active');
-  menuToggle.classList.toggle('active');
+
+  // Toggle between hamburger and close icons
+  const barsIcon = menuToggle.querySelector('.fa-bars');
+  const timesIcon = menuToggle.querySelector('.fa-times');
+
+  if (navMenu.classList.contains('active')) {
+    barsIcon.style.display = 'none';
+    timesIcon.style.display = 'block';
+  } else {
+    barsIcon.style.display = 'block';
+    timesIcon.style.display = 'none';
+  }
 });
 
-// Close menu when a link is clicked (optional)
+// Close the menu when a link is clicked (optional)
 navMenu.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     navMenu.classList.remove('active');
-    menuToggle.classList.remove('active');
+    menuToggle.querySelector('.fa-bars').style.display = 'block';
+    menuToggle.querySelector('.fa-times').style.display = 'none';
   });
 });
 
