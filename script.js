@@ -1,9 +1,20 @@
 // Mobile Toggle Menu
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
+const barsIcon = menuToggle.querySelector('.fa-bars');
+const timesIcon = menuToggle.querySelector('.fa-times');
 
 menuToggle.addEventListener('click', () => {
   navMenu.classList.toggle('active');
+  menuToggle.classList.toggle('active');
+});
+
+// Close menu when a link is clicked (optional)
+navMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+    menuToggle.classList.remove('active');
+  });
 });
 
 // Dark Mode Toggle
