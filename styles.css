@@ -325,9 +325,9 @@ body {
     }
   }
   
- /* Mobile Toggle Menu */
+/* Mobile Toggle Menu */
 .menu-toggle {
-  display: none;
+  display: none; /* Hidden by default */
   background: none;
   border: none;
   color: #fff;
@@ -339,31 +339,28 @@ body {
   z-index: 1001;
 }
 
-.menu-toggle .fa-times {
-  display: none;
-}
-
+/* Show the menu toggle on mobile screens */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
 
   header nav {
-    display: none;
+    display: none; /* Hide the nav menu by default */
     position: fixed;
     top: 0;
     right: 0;
-    width: 100%;
+    width: 250px; /* Set a fixed width for the menu */
     height: 100vh;
     background: rgba(51, 51, 51, 0.95);
     z-index: 1000;
     transition: transform 0.3s ease-in-out;
-    transform: translateX(100%);
+    transform: translateX(100%); /* Move the menu off-screen by default */
   }
 
   header nav.active {
     display: block;
-    transform: translateX(0);
+    transform: translateX(0); /* Bring the menu on-screen */
   }
 
   header nav ul {
@@ -381,13 +378,15 @@ body {
 
   header nav ul li a {
     font-size: 1.5rem;
+    color: #fff;
   }
 
-  .menu-toggle.active .fa-bars {
+  /* Change the menu toggle icon to "close" when the menu is active */
+  header nav.active + .menu-toggle .fa-bars {
     display: none;
   }
 
-  .menu-toggle.active .fa-times {
+  header nav.active + .menu-toggle .fa-times {
     display: block;
   }
 }
