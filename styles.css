@@ -68,7 +68,7 @@ body {
   }
   
   .hero {
-    background: url('https://github.com/GreatKingdavid/Curvy-Couture/blob/main/ceo.jpg') no-repeat center center/cover;
+    background: url('main/ceo.jpg') no-repeat center center/cover;
     color: #fff;
     padding: 150px 20px;
     text-align: center;
